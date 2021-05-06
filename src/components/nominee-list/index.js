@@ -1,20 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Nominee from '../nominee';
+import useNominees from '../../hooks/use-nominees';
 import './index.css';
 
 const NomineeList = () => {
-  const [nominees, setNominees] = useState([]);
-
-  const fetchNominees = async () => {
-    const res = await fetch(`${process.env.REACT_APP_API_URL}/nominees`, {
-      method: 'GET',
-    });
-    const json = await res.json();
-
-    setNominees(json.nominees);
-  };
-
-  useEffect(() => fetchNominees(), []);
+  const [nominees] = useNominees();
 
   return (
     <div className="nominee-list">

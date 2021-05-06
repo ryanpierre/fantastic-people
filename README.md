@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# The Fantastic People's Awards 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Intro
 
-## Available Scripts
+Today we'll be building a voting web app for the inaugaural Fantastic People's awards. This workshop is focused on developing our vocabulary and skills with React.js (mostly referred to just as "React" though)
 
-In the project directory, you can run:
+Our web app will:
+- Fetch the nominees from an external API and display them on screen
+- Allow us to vote on the nominee we think deserves this years award
+- Toggle between a voting view and a results view
 
-### `yarn start`
+## Learning Objectives**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- I can explain what a component, state, and props are
+- I can build an atomic component
+- I can build a composite component
+- I can lift state up
+- I can build components using hooks
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Workshop Setup
 
-### `yarn test`
+- Clone this repo
+- `cd fantastic-people` to enter the root directory of this project
+- `cp .env.example .env.local` to create our local environment 
+- Open `.env.local` in your editor. After the `=` sign in `REACT_APP_API_URL=`, add the following with `(dot)` replaced by the `.` character: `https://shielded-meadow-19821(dot)herokuapp(dot)com`
+- `yarn` to install dependencies
+- `yarn start` to start the server and start working!
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Excercise 1 - Group
 
-### `yarn build`
+- We don't want to show how many votes each candidate has until you've voted to prevent bias
+- In the Nominee component, `src/components/nominee.js` Implement a simple callback on the vote button that logs 'vote collected' and switches the state so the vote button disappears
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Excercise 2 - Breakout
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Without coding, discuss how you might go about changing the state of *all* voting buttons to prevent voting after the first vote has been collected. How can we broadcast to every other button ?
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- What props will our nominee need ? What state will it need ? Will any other components state or props need to be updated ? 
 
-### `yarn eject`
+## Excercise 3 - Breakout
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Let's implement it. When we vote for one person, all other people should switch into the vote count state.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Excercise 4 - Group
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Let's chat about what solutions we had for that. Did anybody manage to make it work ?
+- This isn't really ideal either because as soon as we refresh the page we can vote again. Let's add a check on startup using the useEffect hook to determine whether we've voted already, and skip to the results screen
