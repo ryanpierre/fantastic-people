@@ -6,10 +6,9 @@ const NomineeList = () => {
   const [nominees, setNominees] = useState([]);
 
   const fetchNominees = async () => {
-    const res = await fetch(
-      'https://shielded-meadow-19821.herokuapp.com/nominees',
-      { method: 'GET' }
-    );
+    const res = await fetch(`${process.env.REACT_APP_API_URL}/nominees`, {
+      method: 'GET',
+    });
     const json = await res.json();
 
     setNominees(json.nominees);
