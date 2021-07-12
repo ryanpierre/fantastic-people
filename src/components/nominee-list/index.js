@@ -1,10 +1,10 @@
 import React from 'react';
 import Nominee from '../nominee';
-import useNominees from '../../hooks/use-nominees';
+import NomineesAPI from '../../hooks/use-nominees';
 import './index.css';
 
 const NomineeList = () => {
-  const [nominees] = useNominees();
+  const [nominees, castVote] = NomineesAPI();
 
   return (
     <div className="nominee-list">
