@@ -92,3 +92,4 @@ Send some links on React. Namely, it's important to show them
 - [Thinking In React](https://reactjs.org/docs/thinking-in-react.html)
 - [Hooks Overview](https://reactjs.org/docs/hooks-overview.html) and [Using the effect hook](https://reactjs.org/docs/hooks-effect.html)
 - [Testing Recipes](https://reactjs.org/docs/testing-recipes.html)
+- [Functional vs. Class components](https://www.twilio.com/blog/react-choose-functional-components)
