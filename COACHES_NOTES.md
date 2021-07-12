@@ -77,6 +77,14 @@ Then, inside the Nominee component, wire it up so the vote button's onClick even
 
 This is a good time to open the element inspector in the browser to watch how that old element disappears and a new one replaces it in real time ! cool ! Also notice how *only* the nominee that changed, and in fact only the vote count changes, rather than all the nominees, even though the nominees array has changed.
 
+## Closing Remarks
+
+The learners are more than likely going to seek out other tutorials, and they will notice there is this whole other syntax with classes, `componentDidMount`, `render()`, etc. This is a good time to mention that we use functional components, and to lean towards functional components where possible. 
+
+The main reason for this is the React ecosystem has moved towards hooks. Essential libraries such as Redux and Apollo offer hooks as their only solution now, so it's in our best interest to stick with modern best practices to have access to all the tooling available. Furthermore, it's just more concise to use hooks ! 
+
+Without functional components, we can't use hooks.
+
 ## Post workshop
 
 Send some links on React. Namely, it's important to show them
